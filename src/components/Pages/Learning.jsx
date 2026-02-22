@@ -11,7 +11,7 @@ const Learningpage = () => {
     try {
       Setloading(true);
       let res = await fetch(
-        "http://localhost:3300/api/v1/createCard/category/68b8264e36595f31177724f8"
+        "https://tasker-project-backend.vercel.app/api/v1/createCard/category/68b8264e36595f31177724f8"
       );
       let data = await res.json();
       setTasks(data);

@@ -42,7 +42,7 @@ function Signup() {
     formdata.append('image', data.image[0]);
 
     try {
-      const res = await fetch(`http://localhost:3300/api/v1/user/signup`, {
+      const res = await fetch(`https://tasker-project-backend.vercel.app/api/v1/user/signup`, {
         method: "POST",
         // headers: {
         //   "Content-Type": "application/json"

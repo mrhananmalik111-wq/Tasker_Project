@@ -10,7 +10,7 @@ function Fetch_Data() {
   const DataHandler = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3300/api/v1/createCard/getAll");
+      const res = await fetch("https://tasker-project-backend.vercel.app/api/v1/createCard/getAll");
       const data = await res.json();
       setItem(data);
     } catch (error) {

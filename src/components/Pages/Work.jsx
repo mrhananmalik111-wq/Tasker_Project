@@ -13,7 +13,7 @@ const Workpage = () => {
     try {
       Setloading(true);
       let res = await fetch(
-         "http://localhost:3300/api/v1/createCard/category/68b8261b36595f31177724f4"
+         "https://tasker-project-backend.vercel.app/api/v1/createCard/category/68b8261b36595f31177724f4"
       );
       if (!res.ok) {
         throw new Error("Failed to fetch tasks");

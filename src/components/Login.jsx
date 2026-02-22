@@ -28,7 +28,7 @@ function Login() {
     };
 
     try {
-      const res = await fetch(`http://localhost:3300/api/v1/login/login`, {
+      const res = await fetch(`https://tasker-project-backend.vercel.app/api/v1/login/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

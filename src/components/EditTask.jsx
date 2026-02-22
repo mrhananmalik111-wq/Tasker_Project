@@ -24,7 +24,7 @@ const EditTask = ({ show, handleClose, task }) => {
 
     const getcategory = async () => {
         try {
-            const res = await fetch("http://localhost:3300/api/v1/category/Get");
+            const res = await fetch("https://tasker-project-backend.vercel.app/api/v1/category/Get");
             if (!res.ok) {
                 toast.error("Failed to fetch categories");
             }
@@ -38,7 +38,7 @@ const EditTask = ({ show, handleClose, task }) => {
 
     const getStatus = async () => {
         try {
-            const res = await fetch("http://localhost:3300/api/v1/status/get");
+            const res = await fetch("https://tasker-project-backend.vercel.app/api/v1/status/get");
             if (!res.ok) {
                 toast.error("Failed to fetch Statuses");
             }
@@ -76,11 +76,11 @@ const EditTask = ({ show, handleClose, task }) => {
 
             if (task?._id) {
                 // Edit task
-                url = `http://localhost:3300/api/v1/createCard/${task._id}`;
+                url = `https://tasker-project-backend.vercel.app/api/v1/createCard/${task._id}`;
                 method = "PUT";
             } else {
                 // New task
-                url = "http://localhost:3300/api/v1/card";
+                url = "https://tasker-project-backend.vercel.app/api/v1/card";
                 method = "POST";
             }
 

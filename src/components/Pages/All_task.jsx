@@ -11,7 +11,7 @@ const AllTasks = () => {
     try {
       Setloading(true);
       let res = await fetch(
-        "http://localhost:3300/api/v1/createCard/getAll"
+        "https://tasker-project-backend.vercel.app/api/v1/createCard/getAll"
       );
       let data = await res.json();
       setTasks(data);
@@ -36,7 +36,7 @@ const AllTasks = () => {
             style={{ justifyContent: "center", textAlign: "center" }}
             className="mt-5 mb-3"
           >
-            Loading.... 
+            Loading....
           </div>
         ) : (
           <TasksListing tasks={tasks} />

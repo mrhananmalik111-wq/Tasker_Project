@@ -29,7 +29,7 @@ export default function AppNavbar() {
 
   const getTasks = async () => {
     try {
-      const res = await fetch("http://localhost:3300/api/v1/tasks/get");
+      const res = await fetch("https://tasker-project-backend.vercel.app/api/v1/tasks/get");
       if (!res.ok) {
         console.error("Failed to fetch tasks");
       }
