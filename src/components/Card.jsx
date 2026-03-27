@@ -12,7 +12,7 @@ const cardStyle = {
 };
 
 
-const Base_URL = "http://localhost:3300";
+const Base_URL = "https://tasker-project-backend.vercel.app";
 
 const CardItem = ({ task }) => {
   const [show, setShow] = useState(false);
