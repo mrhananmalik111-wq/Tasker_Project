@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import Loader from "./Loader";
+import Loader from "./NoData";
 import CardItem from "./Card";
 
 export default function CardListing({ tasks }) {

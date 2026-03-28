@@ -24,48 +24,37 @@ function Signup() {
   } = useForm({ mode: "onChange" })
 
   const SignupDone = async (data) => {
+  try {
+    const payload = {
+      username: data.Name,
+      email: data.Email,
+      password: data.Password,
+      contact: data.Contact,
+    };
 
-    // const baseUrl = "http://localhost:3300"
-    // const payload = {
-    //   username: data.Name,
-    //   email: data.Email,
-    //   password: data.Password,
-    //   contact: data.Contact,
-    //   image: data.image[0]
-    // }
+    const res = await fetch(`https://tasker-project-backend.vercel.app/api/v1/user/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-    const formdata = new FormData();
-    formdata.append('username', data.Name);
-    formdata.append('email', data.Email);
-    formdata.append('password', data.Password);
-    formdata.append('contact', data.Contact);
-    formdata.append('image', data.image[0]);
+    const item = await res.json();
+    console.log(item);
 
-    try {
-      const res = await fetch(`https://tasker-project-backend.vercel.app/api/v1/user/signup`, {
-        method: "POST",
-        // headers: {
-        //   "Content-Type": "application/json"
-        // },
-        // body: JSON.stringify(payload)
-        body: formdata
-      })
-      const item = await res.json()
-      console.log(item)
-
-      if (res.ok) {
-        toast.success("User Created Successfully")
-        setShow(false)
-
-
-      } else {
-        toast.error("Failed to Create User")
-      }
-    } catch (error) {
-      console.log(error)
-      toast.error("Failed to create User")
+    if (res.ok) {
+      toast.success("User Created Successfully");
+      setShow(false);
+    } else {
+      toast.error(item.message || "Failed to Create User");
     }
-  };
+
+  } catch (error) {
+    console.log(error);
+    toast.error("Failed to create User");
+  }
+};
 
 
   return (
@@ -145,13 +134,13 @@ function Signup() {
             />
             {errors.Contact && <p style={{ color: "red" }}>{errors.Contact.message}</p>}
           </Form.Group>
-          <Form.Group controlId="formFile" className="mb-3">
+          {/* <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>Image</Form.Label>
             <Form.Control type="file"  {...register("image", {
               required: "Image is required",
             })} />
             {errors.image && <p style={{ color: "red" }}>{errors.image.message}</p>}
-          </Form.Group>
+          </Form.Group> */}
         </Form></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

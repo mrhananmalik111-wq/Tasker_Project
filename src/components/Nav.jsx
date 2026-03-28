@@ -117,10 +117,13 @@ export default function AppNavbar() {
                 height="40"
                 alt="Car"
               />
+               </div> <div style={{ display:"flex", gap: "3px"}}>
+              <Login  show={show} handleClose={handleClose} />
+              <Signup show={show} handleClose={handleClose} /> </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      
       {tasks.map((task) => (
         <CardItem key={task._id} task={task} onEdit={() => handleEdit(task)} />
       ))}
